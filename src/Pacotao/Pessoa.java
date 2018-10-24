@@ -10,6 +10,7 @@ public class Pessoa implements Serializable{
     private String email;
     private String login;
     private String senha;
+    private static final long serialVersionUID = 12346L;
 
     public Pessoa(String nome, String data_nasc, int telefone, int ddd, String email, String login, String senha) {
         this.nome = nome;
@@ -76,9 +77,10 @@ public class Pessoa implements Serializable{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-   
-    
+    @Override
+    public String toString() {
+        return "Pessoa{" + "nome=" + nome + ", data_nasc=" + data_nasc + ", telefone=" + telefone + ", ddd=" + ddd + ", email=" + email + ", login=" + login + ", senha=" + senha + '}';
+    }
 }
 
     

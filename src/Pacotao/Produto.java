@@ -15,6 +15,7 @@ public class Produto implements Serializable  {
     private String nome;
     private String tipo;
     private float preco;
+    private static final long serialVersionUID = 1234L;
 
     public Produto(String nome, String tipo, float preco) {
         this.nome = nome;
@@ -45,9 +46,8 @@ public class Produto implements Serializable  {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
     @Override
     public String toString() {
         return "Produto{" + "nome=" + nome + ", tipo=" + tipo + ", preco=" + preco + '}';
-    }
+    } 
 }
