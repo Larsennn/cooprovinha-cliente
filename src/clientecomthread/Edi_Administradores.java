@@ -320,7 +320,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
     private void jBEdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiActionPerformed
       
             String nome = jTFCadNome.getText();
-            String data_nasc = jTFCadDDD.getText();
+            String data_nasc = jTFCadDataNasc.getText();
             String CPF = jTFCadCPF.getText();
             String RG = jTFCadRG.getText();
             int telefone = (Integer.parseInt(jTFCadTel.getText()));
