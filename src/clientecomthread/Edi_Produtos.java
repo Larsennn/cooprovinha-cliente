@@ -184,40 +184,38 @@ public class Edi_Produtos extends javax.swing.JFrame {
         int p = jTEdiProdutos.getSelectedRow(); // pegar a linha selecionada
         jTEdiNome.setText((String) jTEdiProdutos.getValueAt(p, 0));
         jTEdiTipo.setText((String) jTEdiProdutos.getValueAt(p, 1)); // colocar no campor nome o que a pessoa esta selecionando
-        jTEdiPreco.setText((String.valueOf( jTEdiProdutos.getValueAt(p, 2))));
+        jTEdiPreco.setText((String.valueOf(jTEdiProdutos.getValueAt(p, 2))));
     }//GEN-LAST:event_jTEdiProdutosMouseClicked
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-            Produto p = null;
-            String nome = jTEdiNome.getText();
-            String tipo = jTEdiTipo.getText();
-            float preco = (Float.parseFloat(jTEdiPreco.getText()));
-            Produto meuProduto = new Produto (nome,  tipo, preco);
-            
-            try {
-                Principal.Saida.writeInt(20);
-                Principal.Saida.writeObject(meuProduto);
-                
-            }   catch (IOException ex) {
-                    Logger.getLogger(Edi_Administradores.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        Produto p = null;
+        String nome = jTEdiNome.getText();
+        String tipo = jTEdiTipo.getText();
+        float preco = (Float.parseFloat(jTEdiPreco.getText()));
+        Produto meuProduto = new Produto(nome, tipo, preco);
+
+        try {
+            Principal.Saida.writeInt(20);
+            Principal.Saida.writeObject(meuProduto);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Edi_Administradores.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBEditarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-           try {
+        try {
             Saida.writeObject(21);//avisa que quer a lista
-            LinkedList <Produto> ListaProduto = new LinkedList();
+            LinkedList<Produto> ListaProduto = new LinkedList();
             ListaProduto = (LinkedList<Produto>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jTEdiProdutos.getModel();
             table.setNumRows(0);
-                        
+
             for (int x = 0; x < ListaProduto.size(); x++) {
-               
                 table.addRow(new Object[]{ListaProduto.get(x).getNome(), ListaProduto.get(x).getTipo(), ListaProduto.get(x).getPreco()});
-        
             }
         } catch (IOException | ClassNotFoundException ex) {
-            System.out.println("Erro "+ex);
+            System.out.println("Erro " + ex);
         }
     }//GEN-LAST:event_formWindowOpened
 
