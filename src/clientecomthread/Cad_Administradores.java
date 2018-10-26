@@ -123,12 +123,11 @@ public class Cad_Administradores extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBCadCancelar))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBVoltar)
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBVoltar)
+                                .addGap(141, 141, 141)
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLCadEmail)
@@ -158,7 +157,7 @@ public class Cad_Administradores extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(118, 118, 118)
                                 .addComponent(jTFSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 112, Short.MAX_VALUE)))
+                        .addGap(0, 88, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -211,7 +210,7 @@ public class Cad_Administradores extends javax.swing.JFrame {
                 .addGap(285, 285, 285))
         );
 
-        setSize(new java.awt.Dimension(682, 431));
+        setSize(new java.awt.Dimension(668, 496));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

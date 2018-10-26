@@ -318,7 +318,6 @@ public class Edi_Administradores extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEdiCancelarActionPerformed
 
     private void jBEdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiActionPerformed
-      
             String nome = jTFCadNome.getText();
             String data_nasc = jTFCadDataNasc.getText();
             String CPF = jTFCadCPF.getText();
@@ -336,9 +335,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
                 
             }   catch (IOException ex) {
                     Logger.getLogger(Edi_Administradores.class.getName()).log(Level.SEVERE, null, ex);
-                }
-        
-        
+            }
         
     }//GEN-LAST:event_jBEdiActionPerformed
 
@@ -362,7 +359,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
             ListaAdmin = (LinkedList<Administrador>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jEdiTable.getModel();
             table.setNumRows(0);
-            //System.out.println("Entrou lista tamanho"+ListaAdmin.size());
+            
             
             for (int x = 0; x < ListaAdmin.size(); x++) {
                
@@ -372,7 +369,6 @@ public class Edi_Administradores extends javax.swing.JFrame {
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println("Erro "+ex);
         }
-      
     }//GEN-LAST:event_formWindowOpened
 
     private void jBEdiVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiVoltarActionPerformed
