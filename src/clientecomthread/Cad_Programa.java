@@ -5,6 +5,12 @@
  */
 package clientecomthread;
 
+import Pacotao.Produto;
+import Pacotao.Programa;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author User
@@ -35,8 +41,8 @@ public class Cad_Programa extends javax.swing.JFrame {
         jTFCad_Programa_Orgao = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTFCad_Programa_Sigla = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBPro_Cadastro = new javax.swing.JButton();
+        jBPro_Cancelar = new javax.swing.JButton();
         jBVoltar1 = new javax.swing.JButton();
 
         jBVoltar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
@@ -61,11 +67,16 @@ public class Cad_Programa extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Sigla:");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
-        jButton1.setText("Salvar");
+        jBPro_Cadastro.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jBPro_Cadastro.setText("Salvar");
+        jBPro_Cadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBPro_CadastroActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
-        jButton2.setText("Cancelar");
+        jBPro_Cancelar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jBPro_Cancelar.setText("Cancelar");
 
         jBVoltar1.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBVoltar1.setText("Voltar");
@@ -98,9 +109,9 @@ public class Cad_Programa extends javax.swing.JFrame {
                                 .addComponent(jTFCad_Programa_Orgao, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                                 .addComponent(jTFCad_Programa_Sigla)))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1)
+                            .addComponent(jBPro_Cadastro)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
-                            .addComponent(jButton2))))
+                            .addComponent(jBPro_Cancelar))))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -124,23 +135,36 @@ public class Cad_Programa extends javax.swing.JFrame {
                     .addComponent(jTFCad_Programa_Orgao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jBPro_Cadastro)
+                    .addComponent(jBPro_Cancelar))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
-        Principal p = new Principal();
-        p.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jBVoltarActionPerformed
 
+    private void jBPro_CadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPro_CadastroActionPerformed
+        String nome = jTFCad_Programa_Nome.getText();
+        String orgao = jTFCad_Programa_Orgao.getText();
+        String sigla = jTFCad_Programa_Sigla.getText();
+        Programa prog = new Programa(nome, orgao, sigla);
+        try {
+            Principal.Saida.writeObject(25);
+            Principal.Saida.writeObject(prog);
+            //Principal.Saida.flush();
+        } catch (IOException ex) {
+            System.out.println("Erro: "+ex);
+        }
+        
+    }//GEN-LAST:event_jBPro_CadastroActionPerformed
+
     private void jBVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltar1ActionPerformed
-        // TODO add your handling code here:
         Principal p = new Principal();
         p.setVisible(true);
         this.dispose();
@@ -182,10 +206,10 @@ public class Cad_Programa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBPro_Cadastro;
+    private javax.swing.JButton jBPro_Cancelar;
     private javax.swing.JButton jBVoltar;
     private javax.swing.JButton jBVoltar1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

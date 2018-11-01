@@ -35,6 +35,9 @@ public class Principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jBEdiProdutores = new javax.swing.JButton();
         jBEdiProdutos = new javax.swing.JButton();
+        jBCad_Programa = new javax.swing.JButton();
+        jBCad_Entregas = new javax.swing.JButton();
+        jBRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -94,6 +97,30 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jBCad_Programa.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jBCad_Programa.setText("Cadastro de Programas");
+        jBCad_Programa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCad_ProgramaActionPerformed(evt);
+            }
+        });
+
+        jBCad_Entregas.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jBCad_Entregas.setText("Cadastro de Entregas");
+        jBCad_Entregas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCad_EntregasActionPerformed(evt);
+            }
+        });
+
+        jBRelatorio.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jBRelatorio.setText("Relatório");
+        jBRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRelatorioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,6 +132,9 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBCad_Entregas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBCad_Programa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBEdiProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBEdiProdutores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBProdutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -124,13 +154,19 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jBProdutor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addGap(11, 11, 11)
+                .addComponent(jBCad_Programa)
+                .addGap(12, 12, 12)
+                .addComponent(jBCad_Entregas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBEdiProdutores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBEdiProdutos)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBRelatorio)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -186,6 +222,27 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jBEdiProdutosActionPerformed
 
+    private void jBCad_ProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCad_ProgramaActionPerformed
+        // TODO add your handling code here:
+        Cad_Programa prog = new Cad_Programa();
+        prog.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBCad_ProgramaActionPerformed
+
+    private void jBCad_EntregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCad_EntregasActionPerformed
+        // TODO add your handling code here:
+        Cad_Entregas ent = new Cad_Entregas();
+        ent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBCad_EntregasActionPerformed
+
+    private void jBRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRelatorioActionPerformed
+        // TODO add your handling code here:
+        Relatorio rel = new Relatorio();
+        rel.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBRelatorioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -225,11 +282,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBCad_Entregas;
+    private javax.swing.JButton jBCad_Programa;
     private javax.swing.JButton jBEdiProdutores;
     private javax.swing.JButton jBEdiProdutos;
     private javax.swing.JButton jBPessoas;
     private javax.swing.JButton jBProduto;
     private javax.swing.JButton jBProdutor;
+    private javax.swing.JButton jBRelatorio;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

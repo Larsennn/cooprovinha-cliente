@@ -171,13 +171,14 @@ public class Edi_Produtos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBLVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLVoltarActionPerformed
-        // TODO add your handling code here:
-        Principal p = new Principal();
-        p.setVisible(true);
-        this.dispose();
+            // TODO add your handling code here:
+       Principal p = new Principal();
+     p.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jBLVoltarActionPerformed
 
     private void jTEdiProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTEdiProdutosMouseClicked
@@ -194,28 +195,30 @@ public class Edi_Produtos extends javax.swing.JFrame {
         float preco = (Float.parseFloat(jTEdiPreco.getText()));
         Produto meuProduto = new Produto(nome, tipo, preco);
 
-        try {
+           try {
             Principal.Saida.writeInt(20);
             Principal.Saida.writeObject(meuProduto);
 
         } catch (IOException ex) {
-            Logger.getLogger(Edi_Administradores.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println("Erro: "+ex);
         }
     }//GEN-LAST:event_jBEditarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
+       try {
             Saida.writeObject(21);//avisa que quer a lista
-            LinkedList<Produto> ListaProduto = new LinkedList();
+            LinkedList <Produto> ListaProduto = new LinkedList();
             ListaProduto = (LinkedList<Produto>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jTEdiProdutos.getModel();
             table.setNumRows(0);
-
+                        
             for (int x = 0; x < ListaProduto.size(); x++) {
+               
                 table.addRow(new Object[]{ListaProduto.get(x).getNome(), ListaProduto.get(x).getTipo(), ListaProduto.get(x).getPreco()});
+        
             }
         } catch (IOException | ClassNotFoundException ex) {
-            System.out.println("Erro " + ex);
+            System.out.println("Erro "+ex);
         }
     }//GEN-LAST:event_formWindowOpened
 

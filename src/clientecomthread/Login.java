@@ -5,6 +5,8 @@
  */
 package clientecomthread;
 
+import java.awt.Color;
+
 /**
  *
  * @author User
@@ -16,6 +18,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        getContentPane().setBackground(Color.red);
     }
 
     /**

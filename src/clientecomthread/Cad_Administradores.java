@@ -241,7 +241,7 @@ public class Cad_Administradores extends javax.swing.JFrame {
             
 
             try {
-                Principal.Saida.writeInt(14);
+                Principal.Saida.writeObject(14);
                 Principal.Saida.writeObject(a);
                 
              

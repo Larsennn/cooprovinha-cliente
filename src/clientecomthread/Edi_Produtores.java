@@ -225,7 +225,7 @@ public class Edi_Produtores extends javax.swing.JFrame {
             Produtor meuProdutor = new Produtor (nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);
             
             try {
-                Principal.Saida.writeInt(18);
+                Principal.Saida.writeObject(18);
                 Principal.Saida.writeObject(meuProdutor);
                 
             }   catch (IOException ex) {

@@ -236,7 +236,7 @@ public class Cad_Produtores extends javax.swing.JFrame {
         String DAP = jTFCadDAP.getText();
         Produtor pr = new Produtor (nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);
             try {
-                Principal.Saida.writeInt(15);
+                Principal.Saida.writeObject(15);
                 Principal.Saida.writeObject(pr);
             } catch (IOException ex) {
                 Logger.getLogger(Cad_Produtores.class.getName()).log(Level.SEVERE, null, ex);

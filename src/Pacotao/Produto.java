@@ -17,6 +17,9 @@ public class Produto implements Serializable  {
     private float preco;
     private static final long serialVersionUID = 1234L;
 
+    public Produto() {
+    }
+
     public Produto(String nome, String tipo, float preco) {
         this.nome = nome;
         this.tipo = tipo;

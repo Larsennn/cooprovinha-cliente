@@ -32,15 +32,6 @@ public class Edi_Administradores extends javax.swing.JFrame {
      
     public Edi_Administradores() {
         initComponents();
-    /*        try {
-            //faz a conexao e criar os canais de saida e entrada
-            socket = new Socket("localhost", 12345);
-            saida = new ObjectOutputStream(socket.getOutputStream());
-            entrada = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException ex) {
-            System.out.println("a conexão deu algum problema:" + ex);;
-        }
-        */
     }
     
 
@@ -330,7 +321,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
             Administrador meuAdministrador = new Administrador (nome,data_nasc, telefone, ddd, email, login, senha, RG, CPF);
             
             try {
-                Principal.Saida.writeInt(16);
+                Principal.Saida.writeObject(16);
                 Principal.Saida.writeObject(meuAdministrador);
                 
             }   catch (IOException ex) {

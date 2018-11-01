@@ -157,7 +157,7 @@ public class Cad_Produtos extends javax.swing.JFrame {
         float preco = Float.parseFloat(jTFProdPreco.getText());
         Produto p = new Produto(nome, tipo, preco);
         try {
-            Principal.Saida.writeInt(12);
+            Principal.Saida.writeObject(12);
             Principal.Saida.writeObject(p);
             //Principal.Saida.flush();
         } catch (IOException ex) {

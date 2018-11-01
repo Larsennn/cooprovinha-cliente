@@ -5,7 +5,6 @@
  */
 package clientecomthread;
 
-
 import Pacotao.Entregas;
 import Pacotao.Produto;
 import Pacotao.Programa;
@@ -15,7 +14,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +21,14 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class Cad_Entregas extends javax.swing.JFrame {
+
+    /**
+     * Creates new form Cad_Entrega2
+     */
+    public Cad_Entregas() {
+        initComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +38,17 @@ public class Cad_Entregas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTFEntregas_Total = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTFEntregas_Local = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableEntregas_Produtos = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEntregas_Programas = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jTFEntregas_Programas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jBVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -40,20 +57,9 @@ public class Cad_Entregas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTFEntregas_Produto = new javax.swing.JTextField();
         jTFEntregas_ValorProduto = new javax.swing.JTextField();
-        jTFEntregas_QtProduto = new javax.swing.JTextField();
-        jTFEntregas_Total = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTFEntregas_Local = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableEntregas_Produtos = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableEntregas_Programas = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
-        jTFEntregas_Programas = new javax.swing.JTextField();
         jBEntregas_Salvar = new javax.swing.JButton();
+        jTFEntregas_QtProduto = new javax.swing.JTextField();
         jBEntregas_Cancelar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -61,6 +67,64 @@ public class Cad_Entregas extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel8.setText("Produtos:");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setText("Local de entrega:");
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setText("Programas");
+
+        jTableEntregas_Produtos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome:", "Tipo:", "Preço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableEntregas_Produtos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEntregas_ProdutosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableEntregas_Produtos);
+
+        jTableEntregas_Programas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nome:", "Sigla:", "Orgão:"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableEntregas_Programas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEntregas_ProgramasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableEntregas_Programas);
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setText("Programa:");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("ENTREGAS");
@@ -85,58 +149,6 @@ public class Cad_Entregas extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Valor total:");
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Local de entrega:");
-
-        jTableEntregas_Produtos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nome:", "Tipo:", "Preço"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableEntregas_Produtos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableEntregas_ProdutosMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableEntregas_Produtos);
-
-        jTableEntregas_Programas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nome:", "Sigla:", "Orgão:"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableEntregas_Programas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableEntregas_ProgramasMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTableEntregas_Programas);
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel7.setText("Programa:");
-
         jBEntregas_Salvar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBEntregas_Salvar.setText("Salvar");
         jBEntregas_Salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,12 +159,6 @@ public class Cad_Entregas extends javax.swing.JFrame {
 
         jBEntregas_Cancelar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBEntregas_Cancelar.setText("Cancelar");
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel8.setText("Produtos:");
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel9.setText("Programas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,7 +174,7 @@ public class Cad_Entregas extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -223,7 +229,7 @@ public class Cad_Entregas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jBVoltar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTFEntregas_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,6 +271,18 @@ public class Cad_Entregas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTableEntregas_ProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEntregas_ProdutosMouseClicked
+        int p = jTableEntregas_Produtos.getSelectedRow(); // pegar a linha selecionada
+        jTFEntregas_Produto.setText((String) jTableEntregas_Produtos.getValueAt(p, 0)); // colocar no campor nome o que a pessoa esta selecionando
+        jTFEntregas_ValorProduto.setText((String) jTableEntregas_Produtos.getValueAt(p, 2));
+
+    }//GEN-LAST:event_jTableEntregas_ProdutosMouseClicked
+
+    private void jTableEntregas_ProgramasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEntregas_ProgramasMouseClicked
+        int p = jTableEntregas_Programas.getSelectedRow(); // pegar a linha selecionada
+        jTFEntregas_Programas.setText((String) jTableEntregas_Programas.getValueAt(p, 0)); // colocar no campor nome o que a pessoa esta selecionando
+    }//GEN-LAST:event_jTableEntregas_ProgramasMouseClicked
+
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
         Principal p = new Principal();
@@ -273,68 +291,56 @@ public class Cad_Entregas extends javax.swing.JFrame {
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     private void jBEntregas_SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntregas_SalvarActionPerformed
-              String produto = jTFEntregas_Produto.getText();
-              float valorProduto = Float.parseFloat(jTFEntregas_ValorProduto.getText());
-              int qtProduto = Integer.parseInt(jTFEntregas_QtProduto.getText());
-              float valorTotal = Float.parseFloat(jTFEntregas_Total.getText());
-              String localEntrega = jTFEntregas_Local.getText();
-              Entregas minhaEntrega = new Entregas (produto, valorProduto, qtProduto, valorTotal, localEntrega);
-              
-              try {
-                  Principal.Saida.writeInt(22);
-                  Principal.Saida.writeObject(minhaEntrega);
-                  
-              } catch (IOException ex) {
+        int produto = Integer.parseInt(jTFEntregas_Produto.getText());
+        float valorProduto = Float.parseFloat(jTFEntregas_ValorProduto.getText());
+        int qtProduto = Integer.parseInt(jTFEntregas_QtProduto.getText());
+        float valorTotal = Float.parseFloat(jTFEntregas_Total.getText());
+        String localEntrega = jTFEntregas_Local.getText();
+        int programa = Integer.parseInt(jTFEntregas_Programas.getText());
+        Entregas minhaEntrega = new Entregas(produto, valorProduto, qtProduto, valorTotal, localEntrega, programa);
+
+        try {
+            Principal.Saida.writeObject(22);
+            Principal.Saida.writeObject(minhaEntrega);
+
+        } catch (IOException ex) {
             Logger.getLogger(Cad_Entregas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBEntregas_SalvarActionPerformed
 
-    private void jTableEntregas_ProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEntregas_ProdutosMouseClicked
-           int p = jTableEntregas_Produtos.getSelectedRow(); // pegar a linha selecionada
-           jTFEntregas_Produto.setText((String) jTableEntregas_Produtos.getValueAt(p, 0)); // colocar no campor nome o que a pessoa esta selecionando
-           jTFEntregas_ValorProduto.setText ((String) jTableEntregas_Produtos.getValueAt(p, 2));        
-        
-    }//GEN-LAST:event_jTableEntregas_ProdutosMouseClicked
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-           try {
+        try {
             Saida.writeObject(23);//avisa que quer a lista
-            LinkedList <Produto> ListaProdutos = new LinkedList();
+            LinkedList<Produto> ListaProdutos = new LinkedList();
             ListaProdutos = (LinkedList<Produto>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jTableEntregas_Produtos.getModel();
             table.setNumRows(0);
-            
-            
+
             for (int x = 0; x < ListaProdutos.size(); x++) {
-               
+
                 table.addRow(new Object[]{ListaProdutos.get(x).getNome(), ListaProdutos.get(x).getTipo(), ListaProdutos.get(x).getPreco()});
-        
+
             }
         } catch (IOException | ClassNotFoundException ex) {
-            System.out.println("Erro "+ex);
+            System.out.println("Erro " + ex);
         }
-            try {
+        try {
             Saida.writeObject(24);//avisa que quer a lista
-            LinkedList <Programa> ListaPrograma = new LinkedList();
+            LinkedList<Programa> ListaPrograma = new LinkedList();
             ListaPrograma = (LinkedList<Programa>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jTableEntregas_Programas.getModel();
             table.setNumRows(0);
-            
-            
+
             for (int x = 0; x < ListaPrograma.size(); x++) {
-               
+
                 table.addRow(new Object[]{ListaPrograma.get(x).getNome(), ListaPrograma.get(x).getSigla(), ListaPrograma.get(x).getOrgao()});
-        
+
             }
         } catch (IOException | ClassNotFoundException ex) {
-            System.out.println("Erro "+ex);
+            System.out.println("Erro " + ex);
         }
-    }//GEN-LAST:event_formWindowOpened
 
-    private void jTableEntregas_ProgramasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEntregas_ProgramasMouseClicked
-        int p = jTableEntregas_Programas.getSelectedRow(); // pegar a linha selecionada
-        jTFEntregas_Programas.setText((String) jTableEntregas_Programas.getValueAt(p, 0)); // colocar no campor nome o que a pessoa esta selecionando     
-    }//GEN-LAST:event_jTableEntregas_ProgramasMouseClicked
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -361,7 +367,6 @@ public class Cad_Entregas extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Cad_Entregas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
