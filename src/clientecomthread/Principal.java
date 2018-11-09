@@ -1,4 +1,3 @@
-
 package clientecomthread;
 
 import java.io.IOException;

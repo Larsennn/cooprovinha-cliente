@@ -193,7 +193,8 @@ public class Edi_Produtos extends javax.swing.JFrame {
         String nome = jTEdiNome.getText();
         String tipo = jTEdiTipo.getText();
         float preco = (Float.parseFloat(jTEdiPreco.getText()));
-        Produto meuProduto = new Produto(nome, tipo, preco);
+        int id = p.getId();
+        Produto meuProduto = new Produto(id,nome, tipo, preco);
 
            try {
             Principal.Saida.writeInt(20);

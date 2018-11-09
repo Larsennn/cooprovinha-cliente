@@ -150,13 +150,15 @@ public class Cad_Programa extends javax.swing.JFrame {
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     private void jBPro_CadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPro_CadastroActionPerformed
+        Programa prog = null;
         String nome = jTFCad_Programa_Nome.getText();
         String orgao = jTFCad_Programa_Orgao.getText();
         String sigla = jTFCad_Programa_Sigla.getText();
-        Programa prog = new Programa(nome, orgao, sigla);
+        int id = prog.getId();
+        Programa progs = new Programa(id, nome, orgao, sigla);
         try {
             Principal.Saida.writeObject(25);
-            Principal.Saida.writeObject(prog);
+            Principal.Saida.writeObject(progs);
             //Principal.Saida.flush();
         } catch (IOException ex) {
             System.out.println("Erro: "+ex);

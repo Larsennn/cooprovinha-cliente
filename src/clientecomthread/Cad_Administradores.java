@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 
+ * @author
  */
 public class Cad_Administradores extends javax.swing.JFrame {
 
@@ -210,7 +210,7 @@ public class Cad_Administradores extends javax.swing.JFrame {
                 .addGap(285, 285, 285))
         );
 
-        setSize(new java.awt.Dimension(668, 496));
+        setSize(new java.awt.Dimension(668, 590));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -228,30 +228,27 @@ public class Cad_Administradores extends javax.swing.JFrame {
 
     private void jBCadCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadCadActionPerformed
 
-            String nome = jTFCadNome.getText();
-            String data_nasc = jTFCadDataNasc.getText();
-            String CPF = jTFCadCPF.getText();
-            String RG = jTFCadRG.getText();
-            int telefone = (Integer.parseInt(jTFCadTel.getText()));
-            int ddd = (Integer.parseInt(jTFCadDDD.getText()));
-            String email = jTFCadEmail.getText();
-            String login = jTFLogin.getText();
-            String senha = jTFSenha.getText();
-            Administrador a = new Administrador (nome,data_nasc, telefone, ddd, email, login, senha, RG, CPF);
-            
+        String nome = jTFCadNome.getText();
+        String data_nasc = jTFCadDataNasc.getText();
+        String CPF = jTFCadCPF.getText();
+        String RG = jTFCadRG.getText();
+        int telefone = (Integer.parseInt(jTFCadTel.getText()));
+        int ddd = (Integer.parseInt(jTFCadDDD.getText()));
+        String email = jTFCadEmail.getText();
+        String login = jTFLogin.getText();
+        String senha = jTFSenha.getText();
+        Administrador a = new Administrador(nome, data_nasc, telefone, ddd, email, login, senha, RG, CPF);
 
-            try {
-                Principal.Saida.writeObject(14);
-                Principal.Saida.writeObject(a);
-                
-             
-                                
-            } catch (IOException ex) {
-                Logger.getLogger(Cad_Administradores.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-           limpacampos();
-        
+        try {
+            Principal.Saida.writeObject(14);
+            Principal.Saida.writeObject(a);
+
+        } catch (IOException ex) {
+            Logger.getLogger(Cad_Administradores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        limpacampos();
+
     }//GEN-LAST:event_jBCadCadActionPerformed
 
     /**
@@ -316,15 +313,15 @@ public class Cad_Administradores extends javax.swing.JFrame {
     private javax.swing.JTextField jTFLogin;
     private javax.swing.JTextField jTFSenha;
     // End of variables declaration//GEN-END:variables
-    public void limpacampos(){
-         jTFCadNome.setText("");
-         jTFCadDDD.setText("");
-         jTFCadCPF.setText("");
-         jTFCadRG.setText("");
-         jTFCadTel.setText("");
-         jTFCadDataNasc.setText("");
-         jTFCadEmail.setText("");
-         jTFLogin.setText("");
-         jTFSenha.setText("");
+    public void limpacampos() {
+        jTFCadNome.setText("");
+        jTFCadDDD.setText("");
+        jTFCadCPF.setText("");
+        jTFCadRG.setText("");
+        jTFCadTel.setText("");
+        jTFCadDataNasc.setText("");
+        jTFCadEmail.setText("");
+        jTFLogin.setText("");
+        jTFSenha.setText("");
     }
 }
