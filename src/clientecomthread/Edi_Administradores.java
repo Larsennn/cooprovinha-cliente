@@ -8,6 +8,7 @@ package clientecomthread;
 import Pacotao.Administrador;
 import static clientecomthread.Principal.Entrada;
 import static clientecomthread.Principal.Saida;
+import java.awt.Color;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -25,13 +26,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Edi_Administradores extends javax.swing.JFrame {
 
-    
-    
-    
-    
-     
     public Edi_Administradores() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.white);
     }
     
 
@@ -64,6 +62,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
         jLCadDataNasc = new javax.swing.JLabel();
         jBCadCad = new javax.swing.JButton();
         jLCadCPF = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jBEdiCancelar = new javax.swing.JButton();
         jLCadRG1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -84,6 +83,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
         jBEdiVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jEdiTable = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
 
         jBCadCancelar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBCadCancelar.setText("Cancelar");
@@ -128,6 +128,8 @@ public class Edi_Administradores extends javax.swing.JFrame {
         jLCadCPF.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLCadCPF.setText("CPF:");
 
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -151,6 +153,12 @@ public class Edi_Administradores extends javax.swing.JFrame {
 
         jLCadTel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLCadTel1.setText("Telefone:");
+
+        jTFEdiDDD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFEdiDDDActionPerformed(evt);
+            }
+        });
 
         jLCadEmail1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLCadEmail1.setText("E-mail:");
@@ -206,55 +214,63 @@ public class Edi_Administradores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jEdiTable);
 
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                .addGap(156, 156, 156)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLCadEmail1)
-                            .addComponent(jLabel5))
-                        .addGap(111, 111, 111)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFEdiEmail)
-                            .addComponent(jTFEdiDDD)))
+                        .addComponent(jBEdi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBEdiCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLCadNome1)
                             .addComponent(jLCadDataNasc1)
                             .addComponent(jLCadCPF1)
                             .addComponent(jLCadRG1)
-                            .addComponent(jLCadTel1))
+                            .addComponent(jLCadTel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLCadEmail1))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFEdiDataNasc)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTFEdiCPF)
                             .addComponent(jTFEdiRG)
                             .addComponent(jTFEdiTel)
-                            .addComponent(jTFEdiNome)))
+                            .addComponent(jTFEdiEmail)
+                            .addComponent(jTFEdiDDD)
+                            .addComponent(jTFEdiDataNasc)
+                            .addComponent(jTFEdiNome, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 166, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBEdi)
+                        .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBEdiCancelar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBEdiVoltar)
-                        .addGap(314, 314, 314)
                         .addComponent(jLabel1)
-                        .addGap(0, 352, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(277, 277, 277)
+                        .addComponent(jBEdiVoltar)))
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBEdiVoltar)
-                    .addComponent(jLabel1))
-                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBEdiVoltar)
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCadNome1)
                     .addComponent(jTFEdiNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,21 +290,21 @@ public class Edi_Administradores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCadTel1)
                     .addComponent(jTFEdiTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jTFEdiDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCadEmail1)
-                    .addComponent(jTFEdiEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFEdiEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLCadEmail1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBEdi)
                     .addComponent(jBEdiCancelar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -368,6 +384,10 @@ public class Edi_Administradores extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jBEdiVoltarActionPerformed
 
+    private void jTFEdiDDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFEdiDDDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFEdiDDDActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +443,8 @@ public class Edi_Administradores extends javax.swing.JFrame {
     private javax.swing.JLabel jLCadTel;
     private javax.swing.JLabel jLCadTel1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

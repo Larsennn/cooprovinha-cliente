@@ -7,6 +7,7 @@ package clientecomthread;
 
 import Pacotao.Produto;
 import Pacotao.Programa;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +23,8 @@ public class Cad_Programa extends javax.swing.JFrame {
      */
     public Cad_Programa() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.white);
     }
 
     /**
@@ -34,6 +37,7 @@ public class Cad_Programa extends javax.swing.JFrame {
     private void initComponents() {
 
         jBVoltar = new javax.swing.JButton();
+        jTFCad_Programa_ID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -44,6 +48,7 @@ public class Cad_Programa extends javax.swing.JFrame {
         jBPro_Cadastro = new javax.swing.JButton();
         jBPro_Cancelar = new javax.swing.JButton();
         jBVoltar1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         jBVoltar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBVoltar.setText("Voltar");
@@ -53,7 +58,9 @@ public class Cad_Programa extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jTFCad_Programa_ID.setText("jTextField1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("CADASTRO DE PROGRAMAS");
@@ -86,42 +93,52 @@ public class Cad_Programa extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel11)
+                .addGap(110, 110, 110)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBVoltar1)
+                .addGap(28, 28, 28))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBVoltar1)
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addGap(41, 41, 41)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTFCad_Programa_Nome)
-                                .addComponent(jTFCad_Programa_Orgao, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                                .addComponent(jTFCad_Programa_Sigla)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jBPro_Cadastro)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
-                            .addComponent(jBPro_Cancelar))))
-                .addContainerGap(138, Short.MAX_VALUE))
+                        .addComponent(jBPro_Cadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBPro_Cancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTFCad_Programa_Nome)
+                            .addComponent(jTFCad_Programa_Orgao)
+                            .addComponent(jTFCad_Programa_Sigla, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jBVoltar1))
-                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jBVoltar1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11)))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTFCad_Programa_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -137,7 +154,7 @@ public class Cad_Programa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBPro_Cadastro)
                     .addComponent(jBPro_Cancelar))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,12 +171,12 @@ public class Cad_Programa extends javax.swing.JFrame {
         String nome = jTFCad_Programa_Nome.getText();
         String orgao = jTFCad_Programa_Orgao.getText();
         String sigla = jTFCad_Programa_Sigla.getText();
-        int id = prog.getId();
+        int id = 0;
         Programa progs = new Programa(id, nome, orgao, sigla);
         try {
             Principal.Saida.writeObject(25);
             Principal.Saida.writeObject(progs);
-            //Principal.Saida.flush();
+           
         } catch (IOException ex) {
             System.out.println("Erro: "+ex);
         }
@@ -213,9 +230,11 @@ public class Cad_Programa extends javax.swing.JFrame {
     private javax.swing.JButton jBVoltar;
     private javax.swing.JButton jBVoltar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTFCad_Programa_ID;
     private javax.swing.JTextField jTFCad_Programa_Nome;
     private javax.swing.JTextField jTFCad_Programa_Orgao;
     private javax.swing.JTextField jTFCad_Programa_Sigla;

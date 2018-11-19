@@ -6,7 +6,9 @@
 package clientecomthread;
 
 import java.awt.Color;
-
+import java.util.ArrayList;
+import javax.swing.JTextField;
+import utils.Util;
 /**
  *
  * @author User
@@ -18,7 +20,9 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        getContentPane().setBackground(Color.red);
+        this.setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.white);
+        
     }
 
     /**
@@ -33,12 +37,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPSenha = new javax.swing.JPasswordField();
+        jTSenha = new javax.swing.JPasswordField();
         jTLogin = new javax.swing.JTextField();
         jBEntrar = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("LOGIN");
@@ -49,11 +54,25 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Senha");
 
+        jTLogin.setName("Login"); // NOI18N
+        jTLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTLoginActionPerformed(evt);
+            }
+        });
+
         jBEntrar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBEntrar.setText("Entrar");
+        jBEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEntrarActionPerformed(evt);
+            }
+        });
 
         jBCancelar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBCancelar.setText("Cancelar");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,39 +89,65 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(45, 45, 45)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                                    .addComponent(jTSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                                     .addComponent(jTLogin)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBEntrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                                 .addComponent(jBCancelar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel5)
+                        .addGap(274, 274, 274)
                         .addComponent(jLabel1)))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1)
-                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel1)))
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBEntrar)
                     .addComponent(jBCancelar))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLoginActionPerformed
+        
+    }//GEN-LAST:event_jTLoginActionPerformed
+
+    private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
+        ArrayList<JTextField> campos = new ArrayList<>();
+        campos.add(jTLogin);
+        campos.add(jTSenha);
+        
+        String login = jTLogin.getText();
+        String senha = String.valueOf(jTSenha.getPassword());
+        
+        
+      
+      
+            
+    }//GEN-LAST:event_jBEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,7 +190,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPSenha;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTLogin;
+    private javax.swing.JPasswordField jTSenha;
     // End of variables declaration//GEN-END:variables
 }

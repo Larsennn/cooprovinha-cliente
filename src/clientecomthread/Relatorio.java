@@ -5,6 +5,15 @@
  */
 package clientecomthread;
 
+import Pacotao.Administrador;
+import Pacotao.Entregas;
+import static clientecomthread.Principal.Entrada;
+import static clientecomthread.Principal.Saida;
+import java.awt.Color;
+import java.io.IOException;
+import java.util.LinkedList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
@@ -16,6 +25,8 @@ public class Relatorio extends javax.swing.JFrame {
      */
     public Relatorio() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        getContentPane().setBackground(Color.white);
     }
 
     /**
@@ -30,6 +41,9 @@ public class Relatorio extends javax.swing.JFrame {
         jBVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jBVoltar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTTable_Entregas = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
 
         jBVoltar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBVoltar.setText("Voltar");
@@ -40,9 +54,14 @@ public class Relatorio extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("RELATÓRIO ");
+        jLabel1.setText("RELATÓRIO DE ENTREGAS");
 
         jBVoltar1.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBVoltar1.setText("Voltar");
@@ -52,25 +71,57 @@ public class Relatorio extends javax.swing.JFrame {
             }
         });
 
+        jTTable_Entregas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Produto", "Valor", "Quantidade", "Valor total", "Local ", "Programa"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTTable_Entregas);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jBVoltar1)
-                .addGap(149, 149, 149)
-                .addComponent(jLabel1)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel1)
+                        .addGap(115, 115, 115)
+                        .addComponent(jBVoltar1)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jBVoltar1))
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jBVoltar1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel12)))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,9 +129,6 @@ public class Relatorio extends javax.swing.JFrame {
 
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
-        Principal p = new Principal();
-        p.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     private void jBVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltar1ActionPerformed
@@ -89,6 +137,25 @@ public class Relatorio extends javax.swing.JFrame {
         p.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBVoltar1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+            try {
+            Saida.writeObject(26);//avisa que quer a lista
+            LinkedList <Entregas> ListaEntregas = new LinkedList();
+            ListaEntregas = (LinkedList<Entregas>) Entrada.readObject();
+            DefaultTableModel table = (DefaultTableModel) jTTable_Entregas.getModel();
+            table.setNumRows(0);
+            
+            
+            for (int x = 0; x < ListaEntregas.size(); x++) {
+               
+                table.addRow(new Object[]{ListaEntregas.get(x).getProduto(), ListaEntregas.get(x).getValorProduto(), ListaEntregas.get(x).getQtProduto(), ListaEntregas.get(x).getValorTotal(), ListaEntregas.get(x).getLocalEntrega(), ListaEntregas.get(x).getPrograma()});
+        
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println("Erro "+ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -129,5 +196,8 @@ public class Relatorio extends javax.swing.JFrame {
     private javax.swing.JButton jBVoltar;
     private javax.swing.JButton jBVoltar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTTable_Entregas;
     // End of variables declaration//GEN-END:variables
 }
