@@ -271,7 +271,7 @@ public class Edi_Produtores extends javax.swing.JFrame {
             
             for (int x = 0; x < ListaProdutor.size(); x++) {
                
-                table.addRow(new Object[]{ListaProdutor.get(x).getId(),ListaProdutor.get(x).getDAP(), ListaProdutor.get(x).getNome(), ListaProdutor.get(x).getData_nasc(), ListaProdutor.get(x).getEmail(), ListaProdutor.get(x).getDdd(), ListaProdutor.get(x).getDdd(), ListaProdutor.get(x).getTelefone()});
+                table.addRow(new Object[]{ListaProdutor.get(x).getId(),ListaProdutor.get(x).getDAP(), ListaProdutor.get(x).getNome(), ListaProdutor.get(x).getData_nasc(), ListaProdutor.get(x).getEmail(), ListaProdutor.get(x).getDdd(), ListaProdutor.get(x).getTelefone()});
            
             }
         } catch (IOException | ClassNotFoundException ex) {

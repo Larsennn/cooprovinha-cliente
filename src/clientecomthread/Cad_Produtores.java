@@ -39,6 +39,7 @@ public class Cad_Produtores extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
         jMenu1 = new javax.swing.JMenu();
+        jTFId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -64,6 +65,8 @@ public class Cad_Produtores extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jEditorPane1);
 
         jMenu1.setText("jMenu1");
+
+        jTFId.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -240,7 +243,6 @@ public class Cad_Produtores extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFCadDAPActionPerformed
 
     private void jBCadCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadCadastroActionPerformed
-        Produtor prs = null;
         String nome = jTFCadNome.getText();
         String data_nasc = jTFDataDeNasc.getText();
         int telefone = Integer.parseInt(jTFTelefone.getText());
@@ -249,7 +251,7 @@ public class Cad_Produtores extends javax.swing.JFrame {
         String login = jTFLogin.getText();
         String senha = jTFSenha.getText();
         String DAP = jTFCadDAP.getText();
-        int id = prs.getId();
+        int id = 0;
         Produtor pr = new Produtor (id,nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);
             try {
                 Login.Saida.writeObject(15);
@@ -318,6 +320,7 @@ public class Cad_Produtores extends javax.swing.JFrame {
     private javax.swing.JTextField jTFDDD;
     private javax.swing.JTextField jTFDataDeNasc;
     private javax.swing.JTextField jTFEmail;
+    private javax.swing.JTextField jTFId;
     private javax.swing.JTextField jTFLogin;
     private javax.swing.JTextField jTFSenha;
     private javax.swing.JTextField jTFTelefone;

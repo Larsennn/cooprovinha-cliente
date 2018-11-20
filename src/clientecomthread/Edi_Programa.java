@@ -5,7 +5,6 @@
  */
 package clientecomthread;
 
-import Pacotao.Produto;
 import Pacotao.Programa;
 import static clientecomthread.Login.Entrada;
 import static clientecomthread.Login.Saida;
@@ -232,16 +231,16 @@ public class Edi_Programa extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEditarActionPerformed
             public void carregaListaItens() {
         try {
-            Saida.writeObject(21);//avisa que quer a lista
-            LinkedList<Produto> ListaProduto = new LinkedList();
-            ListaProduto = (LinkedList<Produto>) Entrada.readObject();
-            DefaultTableModel table = (DefaultTableModel) jTEdiProdutos.getModel();
+            Saida.writeObject(28);//avisa que quer a lista
+            LinkedList<Programa> ListaPrograma = new LinkedList();
+            ListaPrograma = (LinkedList<Programa>) Entrada.readObject();
+            DefaultTableModel table = (DefaultTableModel) jTableEdiPrograma.getModel();
             table.setNumRows(0);
             jTFId.setEnabled(false);
 
-            for (int x = 0; x < ListaProduto.size(); x++) {
+            for (int x = 0; x < ListaPrograma.size(); x++) {
 
-                table.addRow(new Object[]{ListaProduto.get(x).getId(), ListaProduto.get(x).getNome(), ListaProduto.get(x).getTipo(), ListaProduto.get(x).getPreco()});
+                table.addRow(new Object[]{ListaPrograma.get(x).getId(), ListaPrograma.get(x).getNome(), ListaPrograma.get(x).getSigla(), ListaPrograma.get(x).getOrgao()});
 
             }
         } catch (IOException | ClassNotFoundException ex) {
@@ -249,7 +248,7 @@ public class Edi_Programa extends javax.swing.JFrame {
         }
     }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+        carregaListaItens();
     }//GEN-LAST:event_formWindowOpened
     
     /**
