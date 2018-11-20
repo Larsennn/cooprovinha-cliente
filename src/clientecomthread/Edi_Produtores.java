@@ -5,10 +5,9 @@
  */
 package clientecomthread;
 
-import Pacotao.Administrador;
 import Pacotao.Produtor;
-import static clientecomthread.Principal.Entrada;
-import static clientecomthread.Principal.Saida;
+import static clientecomthread.Login.Entrada;
+import static clientecomthread.Login.Saida;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -40,6 +39,8 @@ public class Edi_Produtores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTFLogin = new javax.swing.JTextField();
+        jTFSenha = new javax.swing.JTextField();
         jBLVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -59,6 +60,10 @@ public class Edi_Produtores extends javax.swing.JFrame {
         jBEditar = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTFId = new javax.swing.JTextField();
+
+        jTFSenha.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -79,7 +84,7 @@ public class Edi_Produtores extends javax.swing.JFrame {
         jLabel1.setText("EDITAR PRODUTORES");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setText("DAP: ");
+        jLabel2.setText("ID:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Nome:");
@@ -101,11 +106,11 @@ public class Edi_Produtores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "DAP", "Nome", "Data de Nascimento", "Email", "DDD", "Telefone"
+                "ID", "DAP", "Nome", "Data de Nascimento", "Email", "DDD", "Telefone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -132,58 +137,69 @@ public class Edi_Produtores extends javax.swing.JFrame {
 
         jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel8.setText("DAP: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7))
-                            .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(335, 335, 335)
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 85, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel2)
+                            .addComponent(jBEditar)
+                            .addComponent(jLabel12))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTEdiDAP)
                                 .addComponent(jTEdiNome)
                                 .addComponent(jTEdiData_Nasc)
                                 .addComponent(jTEdiEmail)
                                 .addComponent(jTEdiDDD)
-                                .addComponent(jTEdiTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jBEditar)
-                            .addGap(506, 506, 506)
-                            .addComponent(jBCancelar)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(146, 146, 146)
-                        .addComponent(jBLVoltar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jTEdiTelefone)
+                                .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jBCancelar)
+                            .addComponent(jBLVoltar))
+                        .addGap(85, 85, 85))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jBLVoltar)
-                            .addComponent(jLabel1)))
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                            .addComponent(jLabel1))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTEdiDAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTEdiDAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -204,7 +220,7 @@ public class Edi_Produtores extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTEdiTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBEditar)
                     .addComponent(jBCancelar))
@@ -224,56 +240,58 @@ public class Edi_Produtores extends javax.swing.JFrame {
     }//GEN-LAST:event_jBLVoltarActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-        // TODO add your handling code here:
-            Produtor p = null;
-            String DAP = jTEdiDDD.getText();
+            int id = Integer.parseInt(jTFId.getText());
+            String DAP = jTEdiDAP.getText();
             String nome = jTEdiNome.getText();
             int telefone = (Integer.parseInt(jTEdiTelefone.getText()));
             int ddd = (Integer.parseInt(jTEdiDDD.getText()));
             String email = jTEdiEmail.getText();
             String data_nasc = jTEdiData_Nasc.getText();
-            String login = p.getLogin();
-            String senha = p.getSenha();
-            Produtor meuProdutor = new Produtor (nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);
-            
+            String login = jTFLogin.getText();
+            String senha = jTFSenha.getText();
+            Produtor meuProdutor = new Produtor (id, nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);            
             try {
-                Principal.Saida.writeObject(18);
-                Principal.Saida.writeObject(meuProdutor);
+                Login.Saida.writeObject(18);
+                Login.Saida.writeObject(meuProdutor);
+                carregaLista();
                 
             }   catch (IOException ex) {
                     Logger.getLogger(Edi_Administradores.class.getName()).log(Level.SEVERE, null, ex);
                 }
         
     }//GEN-LAST:event_jBEditarActionPerformed
-
-    private void jTEdiTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTEdiTableMouseClicked
-        int p = jTEdiTable.getSelectedRow(); // pegar a linha selecionada
-        jTEdiDAP.setText((String) jTEdiTable.getValueAt(p, 0)); // colocar no campor nome o que a pessoa esta selecionando
-        jTEdiNome.setText((String) jTEdiTable.getValueAt(p, 1));
-        jTEdiData_Nasc.setText((String) jTEdiTable.getValueAt(p, 2));
-        jTEdiEmail.setText((String) jTEdiTable.getValueAt(p, 3));
-        jTEdiDDD.setText((String.valueOf(jTEdiTable.getValueAt(p, 4))));
-        jTEdiTelefone.setText((String.valueOf( jTEdiTable.getValueAt(p, 5))));
-       
-    }//GEN-LAST:event_jTEdiTableMouseClicked
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    public void carregaLista(){
         try {
             Saida.writeObject(19);//avisa que quer a lista
             LinkedList <Produtor> ListaProdutor = new LinkedList();
             ListaProdutor = (LinkedList<Produtor>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jTEdiTable.getModel();
             table.setNumRows(0);
-            //System.out.println("Entrou lista tamanho"+ListaAdmin.size());
+            jTFId.setEnabled(false);
             
             for (int x = 0; x < ListaProdutor.size(); x++) {
                
-                table.addRow(new Object[]{ListaProdutor.get(x).getDAP(), ListaProdutor.get(x).getNome(), ListaProdutor.get(x).getData_nasc(), ListaProdutor.get(x).getEmail(), ListaProdutor.get(x).getDdd(), ListaProdutor.get(x).getTelefone()});
-        
+                table.addRow(new Object[]{ListaProdutor.get(x).getId(),ListaProdutor.get(x).getDAP(), ListaProdutor.get(x).getNome(), ListaProdutor.get(x).getData_nasc(), ListaProdutor.get(x).getEmail(), ListaProdutor.get(x).getDdd(), ListaProdutor.get(x).getDdd(), ListaProdutor.get(x).getTelefone()});
+           
             }
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println("Erro "+ex);
         }
+    }
+    private void jTEdiTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTEdiTableMouseClicked
+        int p = jTEdiTable.getSelectedRow(); // pegar a linha selecionada
+        jTFId.setText((String.valueOf(jTEdiTable.getValueAt(p, 0))));
+        jTEdiDAP.setText((String) jTEdiTable.getValueAt(p, 1)); // colocar no campor nome o que a pessoa esta selecionando
+        jTEdiNome.setText((String) jTEdiTable.getValueAt(p, 2));
+        jTEdiData_Nasc.setText((String) jTEdiTable.getValueAt(p, 3));
+        jTEdiEmail.setText((String) jTEdiTable.getValueAt(p, 4));
+        jTEdiDDD.setText((String.valueOf(jTEdiTable.getValueAt(p, 5))));
+        jTEdiTelefone.setText((String.valueOf( jTEdiTable.getValueAt(p, 6))));
+       
+    }//GEN-LAST:event_jTEdiTableMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+     carregaLista();
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -323,6 +341,7 @@ public class Edi_Produtores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTEdiDAP;
     private javax.swing.JTextField jTEdiDDD;
@@ -331,5 +350,8 @@ public class Edi_Produtores extends javax.swing.JFrame {
     private javax.swing.JTextField jTEdiNome;
     private javax.swing.JTable jTEdiTable;
     private javax.swing.JTextField jTEdiTelefone;
+    private javax.swing.JTextField jTFId;
+    private javax.swing.JTextField jTFLogin;
+    private javax.swing.JTextField jTFSenha;
     // End of variables declaration//GEN-END:variables
 }

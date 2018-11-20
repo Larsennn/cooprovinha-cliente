@@ -5,10 +5,9 @@
  */
 package clientecomthread;
 
-import Pacotao.Administrador;
 import Pacotao.Entregas;
-import static clientecomthread.Principal.Entrada;
-import static clientecomthread.Principal.Saida;
+import static clientecomthread.Login.Entrada;
+import static clientecomthread.Login.Saida;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.LinkedList;

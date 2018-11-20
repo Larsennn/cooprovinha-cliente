@@ -1,8 +1,7 @@
 package clientecomthread;
 
 import Pacotao.Administrador;
-import Pacotao.Pessoa;
-import static clientecomthread.Principal.Saida;
+import static clientecomthread.Login.Saida;
 import java.awt.Color;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -240,7 +239,7 @@ public class Cad_Administradores extends javax.swing.JFrame {
     }//GEN-LAST:event_jBCadCancelarActionPerformed
 
     private void jBCadCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadCadActionPerformed
-
+        Administrador as = null;
         String nome = jTFCadNome.getText();
         String data_nasc = jTFCadDataNasc.getText();
         String CPF = jTFCadCPF.getText();
@@ -250,11 +249,12 @@ public class Cad_Administradores extends javax.swing.JFrame {
         String email = jTFCadEmail.getText();
         String login = jTFLogin.getText();
         String senha = jTFSenha.getText();
-        Administrador a = new Administrador(nome, data_nasc, telefone, ddd, email, login, senha, RG, CPF);
+        int id = as.getId();
+        Administrador a = new Administrador(id,nome, data_nasc, telefone, ddd, email, login, senha, RG, CPF);
 
         try {
-            Principal.Saida.writeObject(14);
-            Principal.Saida.writeObject(a);
+            Login.Saida.writeObject(14);
+            Login.Saida.writeObject(a);
 
         } catch (IOException ex) {
             Logger.getLogger(Cad_Administradores.class.getName()).log(Level.SEVERE, null, ex);

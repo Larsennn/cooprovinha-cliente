@@ -46,6 +46,7 @@ public class Cad_Produtos extends javax.swing.JFrame {
         jBProdCancelar = new javax.swing.JButton();
         jBLVoltar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jTFLogin = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,6 +88,8 @@ public class Cad_Produtos extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
 
+        jTFLogin.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,6 +122,10 @@ public class Cad_Produtos extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addComponent(jTFProdPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(94, 94, 94))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(jTFLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +151,9 @@ public class Cad_Produtos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jTFProdPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBProdCancelar)
                     .addComponent(jBProdCadastrar))
@@ -167,15 +176,17 @@ public class Cad_Produtos extends javax.swing.JFrame {
     }//GEN-LAST:event_jBLVoltarActionPerformed
 
     private void jBProdCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBProdCadastrarActionPerformed
+        Produto ps= null;
         String nome = jTFProdNome.getText();
         String tipo = jTFProdTipo.getText();
         float preco = Float.parseFloat(jTFProdPreco.getText());
-        int id = 0;
+        int id = ps.getId();
         Produto p = new Produto(id, nome, tipo, preco);
+       
         try {
-            Principal.Saida.writeObject(12);
-            Principal.Saida.writeObject(p);
-            //Principal.Saida.flush();
+            Login.Saida.writeObject(12);
+            Login.Saida.writeObject(p);
+            
         } catch (IOException ex) {
             Logger.getLogger(Cad_Produtos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -227,6 +238,7 @@ public class Cad_Produtos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jTFLogin;
     private javax.swing.JTextField jTFProdNome;
     private javax.swing.JTextField jTFProdPreco;
     private javax.swing.JTextField jTFProdTipo;

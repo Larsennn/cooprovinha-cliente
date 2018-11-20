@@ -6,18 +6,13 @@
 package clientecomthread;
 
 import Pacotao.Administrador;
-import static clientecomthread.Principal.Entrada;
-import static clientecomthread.Principal.Saida;
+import static clientecomthread.Login.Entrada;
+import static clientecomthread.Login.Saida;
 import java.awt.Color;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -84,6 +79,8 @@ public class Edi_Administradores extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jEdiTable = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
+        jLCadNome2 = new javax.swing.JLabel();
+        jTFId = new javax.swing.JTextField();
 
         jBCadCancelar.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jBCadCancelar.setText("Cancelar");
@@ -196,11 +193,11 @@ public class Edi_Administradores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Data de Nascimento", "CPF", "RG", "Telefone", "DDD", "E-mail"
+                "ID", "Nome", "Data de Nascimento", "CPF", "RG", "Telefone", "DDD", "E-mail"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -216,12 +213,26 @@ public class Edi_Administradores extends javax.swing.JFrame {
 
         jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
 
+        jLCadNome2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLCadNome2.setText("ID:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(277, 277, 277)
+                        .addComponent(jBEdiVoltar)))
+                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBEdi)
@@ -235,7 +246,8 @@ public class Edi_Administradores extends javax.swing.JFrame {
                             .addComponent(jLCadRG1)
                             .addComponent(jLCadTel1)
                             .addComponent(jLabel5)
-                            .addComponent(jLCadEmail1))
+                            .addComponent(jLCadEmail1)
+                            .addComponent(jLCadNome2))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTFEdiCPF)
@@ -244,19 +256,9 @@ public class Edi_Administradores extends javax.swing.JFrame {
                             .addComponent(jTFEdiEmail)
                             .addComponent(jTFEdiDDD)
                             .addComponent(jTFEdiDataNasc)
-                            .addComponent(jTFEdiNome, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 166, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(277, 277, 277)
-                        .addComponent(jBEdiVoltar)))
-                .addGap(23, 23, 23))
+                            .addComponent(jTFEdiNome, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                            .addComponent(jTFId))))
+                .addGap(155, 155, 155))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +272,11 @@ public class Edi_Administradores extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLCadNome2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTFId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCadNome1)
                     .addComponent(jTFEdiNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -295,16 +301,16 @@ public class Edi_Administradores extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jTFEdiDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFEdiEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFEdiEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLCadEmail1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBEdi)
                     .addComponent(jBEdiCancelar))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -325,20 +331,21 @@ public class Edi_Administradores extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEdiCancelarActionPerformed
 
     private void jBEdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiActionPerformed
-            String nome = jTFCadNome.getText();
-            String data_nasc = jTFCadDataNasc.getText();
-            String CPF = jTFCadCPF.getText();
-            String RG = jTFCadRG.getText();
-            int telefone = (Integer.parseInt(jTFCadTel.getText()));
-            int ddd = (Integer.parseInt(jTFCadDDD.getText()));
-            String email = jTFCadEmail.getText();
+            int id = Integer.parseInt(jTFId.getText());
+            String nome = jTFEdiNome.getText();
+            String data_nasc = jTFEdiDataNasc.getText();
+            String CPF = jTFEdiCPF.getText();
+            String RG = jTFEdiRG.getText();
+            int telefone = Integer.parseInt(jTFEdiTel.getText());
+            int ddd = (Integer.parseInt(jTFEdiDDD.getText()));
+            String email = jTFEdiEmail.getText();
             String login = jTFLogin.getText();
             String senha = jTFSenha.getText();
-            Administrador meuAdministrador = new Administrador (nome,data_nasc, telefone, ddd, email, login, senha, RG, CPF);
-            
+            Administrador meuAdministrador = new Administrador(id, nome,data_nasc, telefone, ddd, email, login, senha, RG, CPF);
             try {
-                Principal.Saida.writeObject(16);
-                Principal.Saida.writeObject(meuAdministrador);
+                Login.Saida.writeObject(16);
+                Login.Saida.writeObject(meuAdministrador);
+                carregaLista();
                 
             }   catch (IOException ex) {
                     Logger.getLogger(Edi_Administradores.class.getName()).log(Level.SEVERE, null, ex);
@@ -348,34 +355,37 @@ public class Edi_Administradores extends javax.swing.JFrame {
 
     private void jEdiTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEdiTableMouseClicked
         int p = jEdiTable.getSelectedRow(); // pegar a linha selecionada
-        jTFEdiNome.setText((String) jEdiTable.getValueAt(p, 0)); // colocar no campor nome o que a pessoa esta selecionando
-        jTFEdiDataNasc.setText((String) jEdiTable.getValueAt(p, 1));
-        jTFEdiCPF.setText((String) jEdiTable.getValueAt(p, 2));
-        jTFEdiRG.setText((String) jEdiTable.getValueAt(p, 3));
-        jTFEdiTel.setText((String.valueOf(jEdiTable.getValueAt(p, 4))));
-        jTFEdiDDD.setText((String.valueOf( jEdiTable.getValueAt(p, 5))));
-        jTFEdiEmail.setText((String) jEdiTable.getValueAt(p, 6));
+        jTFId.setText((String.valueOf(jEdiTable.getValueAt(p, 0))));
+        jTFEdiNome.setText((String) jEdiTable.getValueAt(p, 1)); // colocar no campor nome o que a pessoa esta selecionando
+        jTFEdiDataNasc.setText((String) jEdiTable.getValueAt(p, 2));
+        jTFEdiCPF.setText((String) jEdiTable.getValueAt(p, 3));
+        jTFEdiRG.setText((String) jEdiTable.getValueAt(p, 4));
+        jTFEdiTel.setText((String.valueOf(jEdiTable.getValueAt(p, 5))));
+        jTFEdiDDD.setText((String.valueOf( jEdiTable.getValueAt(p, 6))));
+        jTFEdiEmail.setText((String) jEdiTable.getValueAt(p, 7));
        
         
     }//GEN-LAST:event_jEdiTableMouseClicked
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    public void carregaLista(){
         try {
             Saida.writeObject(17);//avisa que quer a lista
             LinkedList <Administrador> ListaAdmin = new LinkedList();
             ListaAdmin = (LinkedList<Administrador>) Entrada.readObject();
             DefaultTableModel table = (DefaultTableModel) jEdiTable.getModel();
             table.setNumRows(0);
-            
+            jTFId.setEnabled(false);
             
             for (int x = 0; x < ListaAdmin.size(); x++) {
                
-                table.addRow(new Object[]{ListaAdmin.get(x).getNome(), ListaAdmin.get(x).getData_nasc(), ListaAdmin.get(x).getCPF(), ListaAdmin.get(x).getRG(), ListaAdmin.get(x).getTelefone(), ListaAdmin.get(x).getDdd(), ListaAdmin.get(x).getEmail()});
+                table.addRow(new Object[]{ListaAdmin.get(x).getId(),ListaAdmin.get(x).getNome(), ListaAdmin.get(x).getData_nasc(), ListaAdmin.get(x).getCPF(), ListaAdmin.get(x).getRG(), ListaAdmin.get(x).getTelefone(), ListaAdmin.get(x).getDdd(), ListaAdmin.get(x).getEmail()});
         
             }
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println("Erro "+ex);
         }
+    }
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        carregaLista();
     }//GEN-LAST:event_formWindowOpened
 
     private void jBEdiVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiVoltarActionPerformed
@@ -438,6 +448,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
     private javax.swing.JLabel jLCadEmail1;
     private javax.swing.JLabel jLCadNome;
     private javax.swing.JLabel jLCadNome1;
+    private javax.swing.JLabel jLCadNome2;
     private javax.swing.JLabel jLCadRG;
     private javax.swing.JLabel jLCadRG1;
     private javax.swing.JLabel jLCadTel;
@@ -464,6 +475,7 @@ public class Edi_Administradores extends javax.swing.JFrame {
     private javax.swing.JTextField jTFEdiNome;
     private javax.swing.JTextField jTFEdiRG;
     private javax.swing.JTextField jTFEdiTel;
+    private javax.swing.JTextField jTFId;
     private javax.swing.JTextField jTFLogin;
     private javax.swing.JTextField jTFSenha;
     // End of variables declaration//GEN-END:variables

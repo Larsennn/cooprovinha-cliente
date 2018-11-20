@@ -11,9 +11,7 @@ import javax.swing.JFrame;
 
 
 public class Principal extends javax.swing.JFrame {
-    public static Socket conexaoSocket;
-    public static ObjectOutputStream Saida;
-    public static ObjectInputStream Entrada;
+ 
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -34,13 +32,14 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jBProduto = new javax.swing.JButton();
         jBProdutor = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jBEdiAdmin = new javax.swing.JButton();
         jBEdiProdutores = new javax.swing.JButton();
         jBEdiProdutos = new javax.swing.JButton();
         jBCad_Programa = new javax.swing.JButton();
         jBCad_Entregas = new javax.swing.JButton();
         jBRelatorio = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jBEdiProgramas = new javax.swing.JButton();
 
         jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
 
@@ -78,11 +77,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jButton1.setText("Editar Administradores");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBEdiAdmin.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jBEdiAdmin.setText("Editar Administradores");
+        jBEdiAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBEdiAdminActionPerformed(evt);
             }
         });
 
@@ -128,6 +127,14 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Downloads\\Logo.png")); // NOI18N
 
+        jBEdiProgramas.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jBEdiProgramas.setText("Editar Programas");
+        jBEdiProgramas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEdiProgramasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,20 +144,21 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel13)
-                        .addGap(169, 169, 169)
+                        .addGap(163, 163, 163)
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jBRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBEdiProgramas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBRelatorio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBCad_Entregas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBCad_Programa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBEdiProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBEdiProdutores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBProdutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jBProduto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jBPessoas, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+                            .addComponent(jBEdiAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
@@ -158,12 +166,16 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel13))
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jLabel13)))
+                .addGap(18, 18, 18)
+                .addComponent(jBRelatorio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBCad_Entregas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBPessoas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBProdutor)
@@ -171,17 +183,15 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jBProduto)
                 .addGap(11, 11, 11)
                 .addComponent(jBCad_Programa)
-                .addGap(12, 12, 12)
-                .addComponent(jBCad_Entregas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBEdiAdmin)
+                .addGap(12, 12, 12)
                 .addComponent(jBEdiProdutores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBEdiProdutos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBRelatorio)
-                .addGap(39, 39, 39))
+                .addComponent(jBEdiProgramas)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,13 +204,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBPessoasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            this.conexaoSocket = new Socket("127.0.0.1",12345);
-            this.Saida = new ObjectOutputStream(conexaoSocket.getOutputStream());
-            this.Entrada = new ObjectInputStream(conexaoSocket.getInputStream());
-        } catch (IOException ex) {
-        System.out.println( "Deu erro na conexao ao servidor."+ex);
-        }
+       if (Login.x == 2){
+          jBPessoas.setVisible(false);
+          jBProdutor.setVisible(false);
+          jBProduto.setVisible(false);
+          jBCad_Programa.setVisible(false);
+          jBEdiProdutores.setVisible(false);
+          jBEdiProdutos.setVisible(false);
+          jBEdiAdmin.setVisible(false);
+          jBEdiProgramas.setVisible(false);
+       }
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -218,12 +231,12 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jBProdutorActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBEdiAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiAdminActionPerformed
         // TODO add your handling code here:
         Edi_Administradores adm = new Edi_Administradores();
         adm.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBEdiAdminActionPerformed
 
     private void jBEdiProdutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiProdutoresActionPerformed
         Edi_Produtores pro = new Edi_Produtores();
@@ -257,6 +270,12 @@ public class Principal extends javax.swing.JFrame {
         rel.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBRelatorioActionPerformed
+
+    private void jBEdiProgramasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEdiProgramasActionPerformed
+        Edi_Programa prog = new Edi_Programa();
+        prog.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBEdiProgramasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,13 +318,14 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCad_Entregas;
     private javax.swing.JButton jBCad_Programa;
+    private javax.swing.JButton jBEdiAdmin;
     private javax.swing.JButton jBEdiProdutores;
     private javax.swing.JButton jBEdiProdutos;
+    private javax.swing.JButton jBEdiProgramas;
     private javax.swing.JButton jBPessoas;
     private javax.swing.JButton jBProduto;
     private javax.swing.JButton jBProdutor;
     private javax.swing.JButton jBRelatorio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

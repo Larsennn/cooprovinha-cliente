@@ -8,8 +8,8 @@ package clientecomthread;
 import Pacotao.Entregas;
 import Pacotao.Produto;
 import Pacotao.Programa;
-import static clientecomthread.Principal.Entrada;
-import static clientecomthread.Principal.Saida;
+import static clientecomthread.Login.Entrada;
+import static clientecomthread.Login.Saida;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -311,8 +311,8 @@ public class Cad_Entregas extends javax.swing.JFrame {
         Entregas minhaEntrega = new Entregas(produto, valorProduto, qtProduto, valorTotal, localEntrega, programa);
 
         try {
-            Principal.Saida.writeObject(22);
-            Principal.Saida.writeObject(minhaEntrega);
+            Login.Saida.writeObject(22);
+            Login.Saida.writeObject(minhaEntrega);
 
         } catch (IOException ex) {
             Logger.getLogger(Cad_Entregas.class.getName()).log(Level.SEVERE, null, ex);

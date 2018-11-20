@@ -6,15 +6,23 @@
 package clientecomthread;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import javax.swing.JTextField;
-import utils.Util;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author User
  */
 public class Login extends javax.swing.JFrame {
-
+    public static Socket conexaoSocket;
+    public static ObjectOutputStream Saida;
+    public static ObjectInputStream Entrada;
+    public static int x;
+    String recebido;
     /**
      * Creates new form Login
      */
@@ -44,6 +52,11 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("LOGIN");
@@ -136,18 +149,37 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTLoginActionPerformed
 
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
-        ArrayList<JTextField> campos = new ArrayList<>();
-        campos.add(jTLogin);
-        campos.add(jTSenha);
-        
-        String login = jTLogin.getText();
-        String senha = String.valueOf(jTSenha.getPassword());
-        
-        
-      
-      
-            
+         try {
+            Saida.writeObject(13);
+            recebido = (String) Entrada.readObject();
+            Saida.writeObject(jTLogin.getText());
+            recebido = (String) Entrada.readObject();
+            Saida.writeObject(jTSenha.getText());
+            x = (Integer) Entrada.readObject();
+            if (x!=0) {
+                //Ir para principal
+                Principal p = new Principal();
+                p.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"USUÁRIO OU SENHA INCORRETOS");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBEntrarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       try {
+            Login.conexaoSocket = new Socket("127.0.0.1",12345);
+            Login.Saida = new ObjectOutputStream(conexaoSocket.getOutputStream());
+            Login.Entrada = new ObjectInputStream(conexaoSocket.getInputStream());
+        } catch (IOException ex) {
+        System.out.println( "Deu erro na conexao ao servidor."+ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

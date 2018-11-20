@@ -174,8 +174,8 @@ public class Cad_Programa extends javax.swing.JFrame {
         int id = 0;
         Programa progs = new Programa(id, nome, orgao, sigla);
         try {
-            Principal.Saida.writeObject(25);
-            Principal.Saida.writeObject(progs);
+            Login.Saida.writeObject(25);
+            Login.Saida.writeObject(progs);
            
         } catch (IOException ex) {
             System.out.println("Erro: "+ex);

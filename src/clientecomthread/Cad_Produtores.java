@@ -240,6 +240,7 @@ public class Cad_Produtores extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFCadDAPActionPerformed
 
     private void jBCadCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadCadastroActionPerformed
+        Produtor prs = null;
         String nome = jTFCadNome.getText();
         String data_nasc = jTFDataDeNasc.getText();
         int telefone = Integer.parseInt(jTFTelefone.getText());
@@ -248,10 +249,11 @@ public class Cad_Produtores extends javax.swing.JFrame {
         String login = jTFLogin.getText();
         String senha = jTFSenha.getText();
         String DAP = jTFCadDAP.getText();
-        Produtor pr = new Produtor (nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);
+        int id = prs.getId();
+        Produtor pr = new Produtor (id,nome,  data_nasc,  telefone,  ddd,  email,  login,  senha, DAP);
             try {
-                Principal.Saida.writeObject(15);
-                Principal.Saida.writeObject(pr);
+                Login.Saida.writeObject(15);
+                Login.Saida.writeObject(pr);
             } catch (IOException ex) {
                 Logger.getLogger(Cad_Produtores.class.getName()).log(Level.SEVERE, null, ex);
             }
